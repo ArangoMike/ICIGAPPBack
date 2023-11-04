@@ -19,18 +19,21 @@ public class GrupoController {
         this.grupoService = grupoService;
     }
 
+    // Controlador para crear un nuevo grupo
     @PostMapping
     public ResponseEntity<Grupo> crearGrupo(@RequestBody Grupo grupo) {
         Grupo nuevoGrupo = grupoService.crearGrupo(grupo);
         return new ResponseEntity<>(nuevoGrupo, HttpStatus.CREATED);
     }
 
+    // Controlador para obtener todos los grupos
     @GetMapping
     public ResponseEntity<List<Grupo>> obtenerTodosLosGrupos() {
         List<Grupo> grupos = grupoService.obtenerTodosLosGrupos();
         return new ResponseEntity<>(grupos, HttpStatus.OK);
     }
 
+    // Controlador para obtener un grupo por su identificador (ID)
     @GetMapping("/{id}")
     public ResponseEntity<Grupo> obtenerGrupoPorId(@PathVariable int id) {
         Grupo grupo = grupoService.obtenerGrupoPorId(id);
@@ -41,6 +44,7 @@ public class GrupoController {
         }
     }
 
+    // Controlador para actualizar un grupo existente
     @PutMapping("/{id}")
     public ResponseEntity<Grupo> actualizarGrupo(@PathVariable int id, @RequestBody Grupo grupo) {
         grupo.setIdGrupo(id);
@@ -52,6 +56,7 @@ public class GrupoController {
         }
     }
 
+    // Controlador para eliminar un grupo por su identificador (ID)
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarGrupo(@PathVariable int id) {
         grupoService.eliminarGrupo(id);

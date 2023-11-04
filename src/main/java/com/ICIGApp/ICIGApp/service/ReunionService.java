@@ -16,27 +16,29 @@ public class ReunionService {
         this.reunionRepository = reunionRepository;
     }
 
+    // Método para crear una reunión y guardarla en la base de datos
     public Reunion crearReunion(Reunion reunion) {
-        // Lógica para crear una reunión
         return reunionRepository.save(reunion);
     }
 
+    // Método para obtener todas las reuniones de la base de datos
     public List<Reunion> obtenerTodasLasReuniones() {
-        // Lógica para obtener todas las reuniones
         return reunionRepository.findAll();
     }
 
+    // Método para obtener una reunión por su identificador (ID)
     public Reunion obtenerReunionPorId(int id) {
         return reunionRepository.findById(id).orElse(null);
     }
 
+    // Método para actualizar una reunión existente en la base de datos
     public Reunion actualizarReunion(int id, Reunion reunion) {
-        reunion.setIdReunion(id);
+        reunion.setIdReunion(id);  // Establece el ID de la reunión a actualizar
         return reunionRepository.save(reunion);
     }
 
+    // Método para eliminar una reunión por su identificador (ID)
     public void eliminarReunion(int id) {
-
         reunionRepository.deleteById(id);
     }
 }

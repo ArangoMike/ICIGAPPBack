@@ -17,26 +17,31 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
+    // Controlador para obtener todos los usuarios
     @GetMapping
     public List<Usuario> obtenerTodosLosUsuarios() {
         return usuarioService.obtenerTodosLosUsuarios();
     }
 
+    // Controlador para obtener un usuario por su identificador (ID)
     @GetMapping("/{id}")
     public Usuario obtenerUsuarioPorId(@PathVariable int id) {
         return usuarioService.obtenerUsuarioPorId(id);
     }
 
+    // Controlador para crear un nuevo usuario
     @PostMapping
     public Usuario crearUsuario(@RequestBody Usuario usuario) {
         return usuarioService.crearUsuario(usuario);
     }
 
+    // Controlador para actualizar un usuario existente
     @PutMapping("/{id}")
     public Usuario actualizarUsuario(@PathVariable int id, @RequestBody Usuario usuario) {
         return usuarioService.actualizarUsuario(id, usuario);
     }
 
+    // Controlador para eliminar un usuario por su identificador (ID)
     @DeleteMapping("/{id}")
     public void eliminarUsuario(@PathVariable int id) {
         usuarioService.eliminarUsuario(id);

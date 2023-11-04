@@ -19,18 +19,21 @@ public class ReunionController {
         this.reunionService = reunionService;
     }
 
+    // Controlador para crear una nueva reunión
     @PostMapping
     public ResponseEntity<Reunion> crearReunion(@RequestBody Reunion reunion) {
         Reunion nuevaReunion = reunionService.crearReunion(reunion);
         return new ResponseEntity<>(nuevaReunion, HttpStatus.CREATED);
     }
 
+    // Controlador para obtener todas las reuniones
     @GetMapping
     public ResponseEntity<List<Reunion>> obtenerTodasLasReuniones() {
         List<Reunion> reuniones = reunionService.obtenerTodasLasReuniones();
         return new ResponseEntity<>(reuniones, HttpStatus.OK);
     }
 
+    // Controlador para obtener una reunión por su identificador (ID)
     @GetMapping("/{id}")
     public ResponseEntity<Reunion> obtenerReunionPorId(@PathVariable int id) {
         Reunion reunion = reunionService.obtenerReunionPorId(id);
@@ -41,6 +44,7 @@ public class ReunionController {
         }
     }
 
+    // Controlador para actualizar una reunión existente
     @PutMapping("/{id}")
     public ResponseEntity<Reunion> actualizarReunion(@PathVariable int id, @RequestBody Reunion reunion) {
         Reunion reunionActualizada = reunionService.actualizarReunion(id, reunion);
@@ -51,6 +55,7 @@ public class ReunionController {
         }
     }
 
+    // Controlador para eliminar una reunión por su identificador (ID)
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarReunion(@PathVariable int id) {
         reunionService.eliminarReunion(id);
