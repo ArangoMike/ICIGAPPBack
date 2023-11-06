@@ -22,9 +22,6 @@ public class Reunion {
     @Column(name = "hora_reunion")
     private String horaReunion;
 
-    @Column(name = "ubicacion_reunion")
-    private String ubicacionReunion;
-
     @Column(name = "descripcion_reunion", length = 350)
     private String descripcionReunion;
 }

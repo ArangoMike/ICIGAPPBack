@@ -19,14 +19,14 @@ public class UsuarioService {
         return usuarioRepository.save(usuario); // Crea un nuevo usuario en la base de datos.
     }
 
-    public Usuario actualizarUsuario(int id, Usuario usuarioActualizado) {
-       usuarioActualizado.setCedula(id);
+    public Usuario actualizarUsuario(String id, Usuario usuarioActualizado) {
+       usuarioActualizado.setEmail(id);
 
         return usuarioRepository.save(usuarioActualizado);
     }
 
 
-    public Usuario obtenerUsuarioPorId(int id) {
+    public Usuario obtenerUsuarioPorId(String id) {
         return usuarioRepository.findById(id).orElse(null); // Obtiene un usuario por ID.
     }
 
@@ -34,7 +34,7 @@ public class UsuarioService {
         return usuarioRepository.findAll(); // Obtiene todos los usuarios.
     }
 
-    public void eliminarUsuario(int id) {
+    public void eliminarUsuario(String id) {
         usuarioRepository.deleteById(id); // Elimina un usuario por ID.
     }
 

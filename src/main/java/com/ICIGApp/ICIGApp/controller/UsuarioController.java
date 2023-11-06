@@ -25,7 +25,7 @@ public class UsuarioController {
 
     // Controlador para obtener un usuario por su identificador (ID)
     @GetMapping("/{id}")
-    public Usuario obtenerUsuarioPorId(@PathVariable int id) {
+    public Usuario obtenerUsuarioPorId(@PathVariable String id) {
         return usuarioService.obtenerUsuarioPorId(id);
     }
 
@@ -37,13 +37,13 @@ public class UsuarioController {
 
     // Controlador para actualizar un usuario existente
     @PutMapping("/{id}")
-    public Usuario actualizarUsuario(@PathVariable int id, @RequestBody Usuario usuario) {
+    public Usuario actualizarUsuario(@PathVariable String id, @RequestBody Usuario usuario) {
         return usuarioService.actualizarUsuario(id, usuario);
     }
 
     // Controlador para eliminar un usuario por su identificador (ID)
     @DeleteMapping("/{id}")
-    public void eliminarUsuario(@PathVariable int id) {
+    public void eliminarUsuario(@PathVariable String id) {
         usuarioService.eliminarUsuario(id);
     }
 }
